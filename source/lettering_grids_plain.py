@@ -52,7 +52,7 @@ def draw_box(box_size, box_mm, dpi, show_cross=True, show_tenth=True, show_unit=
 
 
 # A4 paper
-dpi = 300
+dpi = 72
 width = mm_to_pixel(297, dpi)
 height = mm_to_pixel(210, dpi)
 
@@ -72,7 +72,7 @@ height_margin = (height - ((box_size + gutter) * n_row - gutter)) / 2
 newPage(width, height)
 fill(None)
 cmykStroke(1, 0, 0, 0)
-strokeWidth(mm_to_pixel(0.3, dpi))
+strokeWidth(mm_to_pixel(0.05, dpi))
 
 translate(width_margin, height_margin)
 

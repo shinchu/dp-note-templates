@@ -13,13 +13,13 @@ def mm_to_pixel(mm, dpi=300):
 def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=True, show_bi=True, show_corner=True, show_inner=True, show_unit=True, show_side=True, show_dots=True):
 
     rect(0, 0, box_size, box_size)
-    
+
     if show_inner:
         save()
         translate(mm_to_pixel(inner_mm, dpi), mm_to_pixel(inner_mm, dpi))
         rect(0, 0, box_size - 2 * mm_to_pixel(inner_mm, dpi), box_size - 2 * mm_to_pixel(inner_mm, dpi))
         restore()
-    
+
     if show_corner:
         save()
         translate(-mm_to_pixel(corner_mm, dpi), -mm_to_pixel(corner_mm, dpi))
@@ -35,7 +35,7 @@ def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=Tr
         line((0, 0), (0, 3 * mm_to_pixel(corner_mm, dpi)))
         line((0, 0), (-3 * mm_to_pixel(corner_mm, dpi), 0))
         restore()
-    
+
     if show_cross:
         save()
         translate(0, box_size/2)
@@ -45,7 +45,7 @@ def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=Tr
         translate(box_size/2, 0)
         line((0, -mm_to_pixel(outer_mm, dpi)), (0, box_size + mm_to_pixel(outer_mm, dpi)))
         restore()
-    
+
     if show_bi:
         save()
         for i in range(int(box_mm / 2)):
@@ -57,7 +57,7 @@ def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=Tr
             translate(2 * box_size / box_mm, 0)
             line((0, 0), (0, box_size))
         restore()
-    
+
     if show_unit:
         save()
         translate(box_size / box_mm, 0)
@@ -81,7 +81,7 @@ def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=Tr
                 line((0, 0), (2 * box_size / box_mm, 0))
                 line((box_size, 0), (box_size - 2 * box_size / box_mm, 0))
         restore()
-    
+
     if show_side:
         save()
         translate(box_size + (box_size/box_mm)/2, 0)
@@ -89,14 +89,14 @@ def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=Tr
             translate(0, box_size / 16)
             line((0, 0), (box_size / box_mm, 0))
         restore()
-    
+
     if show_dots:
         dot_size = corner_mm / 15
         rect(box_size / box_mm, box_size / box_mm, mm_to_pixel(dot_size, dpi), mm_to_pixel(dot_size, dpi))
         rect(box_size / box_mm, box_size - box_size / box_mm, mm_to_pixel(dot_size, dpi), mm_to_pixel(dot_size, dpi))
         rect(box_size - box_size / box_mm, box_size / box_mm, mm_to_pixel(dot_size, dpi), mm_to_pixel(dot_size, dpi))
         rect(box_size - box_size / box_mm, box_size - box_size / box_mm, mm_to_pixel(dot_size, dpi), mm_to_pixel(dot_size, dpi))
-        
+
 
 # A4 paper
 dpi = 72
