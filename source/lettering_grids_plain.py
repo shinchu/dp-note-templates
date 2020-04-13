@@ -25,13 +25,13 @@ def draw_box(box_size, box_mm, dpi, show_cross=True, show_tenth=True, show_unit=
     if show_tenth:
         save()
         for i in range(10):
-            strokeWidth(mm_to_pixel(0.2, dpi))
+            strokeWidth(mm_to_pixel(0.1, dpi))
             translate(0, box_size/10)
             line((0, 0), (box_size, 0))
         restore()
         save()
         for i in range(10):
-            strokeWidth(mm_to_pixel(0.2, dpi))
+            strokeWidth(mm_to_pixel(0.1, dpi))
             translate(box_size/10, 0)
             line((0, 0), (0, box_size))
         restore()
@@ -39,13 +39,13 @@ def draw_box(box_size, box_mm, dpi, show_cross=True, show_tenth=True, show_unit=
     if show_unit:
         save()
         for i in range(box_mm):
-            strokeWidth(mm_to_pixel(0.1, dpi))
+            strokeWidth(mm_to_pixel(0.05, dpi))
             translate(0, box_size/box_mm)
             line((0, 0), (box_size, 0))
         restore()
         save()
         for i in range(box_mm):
-            strokeWidth(mm_to_pixel(0.1, dpi))
+            strokeWidth(mm_to_pixel(0.05, dpi))
             translate(box_size/box_mm, 0)
             line((0, 0), (0, box_size))
         restore()
@@ -72,7 +72,7 @@ height_margin = (height - ((box_size + gutter) * n_row - gutter)) / 2
 newPage(width, height)
 fill(None)
 cmykStroke(1, 0, 0, 0)
-strokeWidth(mm_to_pixel(0.05, dpi))
+strokeWidth(mm_to_pixel(0.25, dpi))
 
 translate(width_margin, height_margin)
 
