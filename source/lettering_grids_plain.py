@@ -70,8 +70,8 @@ width_margin = (width - ((box_size + gutter) * n_col - gutter)) / 2
 height_margin = (height - ((box_size + gutter) * n_row - gutter)) / 2
 
 newPage(width, height)
-fill(None)
-cmykStroke(1, 0, 0, 0)
+cmykFill(None)
+cmykStroke(1, 0, 0, 0, 0.6)
 strokeWidth(mm_to_pixel(0.25, dpi))
 
 translate(width_margin, height_margin)
