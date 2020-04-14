@@ -17,13 +17,13 @@ height = mm_to_pixel(210, dpi)
 
 # variables
 start_of_a_day = 8
-end_of_a_day = 23
+end_of_a_day = 24
 n_days = 14
 n_projects = 10
 margin = mm_to_pixel(10, dpi)
 
 # constants
-n_cols = 2 + end_of_a_day - start_of_a_day + n_projects
+n_cols = 1 + end_of_a_day - start_of_a_day + n_projects
 n_rows = n_days
 
 canvas_width = width - 2 * margin
@@ -72,7 +72,7 @@ for i in range(1, n_rows):
 save()
 cmykFill(0, 0, 0, 1)
 cmykStroke(None)
-for i in range(1, end_of_a_day - start_of_a_day + 2):
+for i in range(1, end_of_a_day - start_of_a_day + 1):
     text(str(start_of_a_day - 1 + i), (i * grid, grid * n_rows + mm_to_pixel(1.5, dpi)), 'center')
 restore()
 
