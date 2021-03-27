@@ -98,10 +98,11 @@ def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=Tr
         rect(box_size - box_size / box_mm, box_size - box_size / box_mm, mm_to_pixel(dot_size, dpi), mm_to_pixel(dot_size, dpi))
 
 
-# A4 paper
-dpi = 72
-width = mm_to_pixel(297, dpi)
-height = mm_to_pixel(210, dpi)
+# ReMarkable template size
+# 1404×1872 pixels
+dpi = 250
+width = 1872
+height = 1404
 
 # box size
 box_mm = 60
@@ -122,7 +123,7 @@ height_margin = (height - ((outer_box + gutter) * n_row - gutter)) / 2
 
 newPage(width, height)
 fill(None)
-cmykStroke(1, 0, 0, 0, 0.5)
+stroke(0, 0.7, 0.9, 0.6)
 strokeWidth(mm_to_pixel(0.1, dpi))
 
 translate(width_margin + mm_to_pixel(outer_mm, dpi), height_margin + mm_to_pixel(outer_mm, dpi))
@@ -137,5 +138,7 @@ for i in range(n_row):
 
 parent_dir = os.path.dirname(os.getcwd())
 filename = os.path.basename(__file__).split('.')[0]
-saveImage('{}/{}.pdf'.format(os.path.join(parent_dir, 'pdf'),
+saveImage('{}/{}.svg'.format(os.path.join(parent_dir, 'svg'),
                              filename))
+saveImage('{}/{}.png'.format(os.path.join(parent_dir, 'png'),
+                             filename), imageResolution=72)

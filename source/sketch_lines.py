@@ -70,27 +70,28 @@ class SketchLines:
 
     def draw(self):
         font("Input Mono Condensed", 36 * scale)
-        cmykStroke(None)
-        cmykFill(0, 0, 1, 0, 0.5)
+        stroke(None)
+        fill(1, 0.8, 0, 0.5)
         self.draw_baseline_overshoot()
         self.draw_xheight_overshoot()
-        cmykStroke(0, 0, 0, 1)
-        cmykFill(0, 0, 0, 1)
+        stroke(0)
+        fill(0)
         self.draw_descender()
         self.draw_baseline()
         self.draw_xheight()
         self.draw_cap_height()
         self.draw_ascender()
-        cmykStroke(0, 0, 0, 1, 0.3)
-        cmykFill(None)
-        self._draw_glyph_width()
+        stroke(0, 0.3)
+        fill(None)
+        self.draw_glyph_width()
 
 if __name__ == "__main__":
 
-    # A4 paper
-    dpi = 72
-    width = mm_to_pixel(297, dpi)
-    height = mm_to_pixel(210, dpi)
+    # ReMarkable template size
+    # 1404×1872 pixels
+    dpi = 170
+    width = 1872
+    height = 1404
 
     # variables
     xheight = 500
@@ -123,5 +124,7 @@ if __name__ == "__main__":
 
     parent_dir = os.path.dirname(os.getcwd())
     filename = os.path.basename(__file__).split('.')[0]
-    saveImage('{}/{}.pdf'.format(os.path.join(parent_dir, 'pdf'),
+    saveImage('{}/{}.svg'.format(os.path.join(parent_dir, 'svg'),
                                  filename))
+    saveImage('{}/{}.png'.format(os.path.join(parent_dir, 'png'),
+                                 filename), imageResolution=72)

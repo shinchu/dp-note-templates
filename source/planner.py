@@ -10,10 +10,11 @@ def mm_to_pixel(mm, dpi=300):
     inch_per_mm = 0.0393701
     return mm * inch_per_mm * dpi
 
-# A4 paper
-dpi = 72
-width = mm_to_pixel(297, dpi)
-height = mm_to_pixel(210, dpi)
+# ReMarkable template size
+# 1404×1872 pixels
+dpi = 200
+width = 1872
+height = 1404
 
 # variables
 start_of_a_day = 8
@@ -32,8 +33,8 @@ canvas_height = height - 2 * margin
 grid = canvas_width / n_cols
 
 newPage(width, height)
-cmykFill(None)
-cmykStroke(0, 0, 0, 1)
+fill(None)
+stroke(0, 0, 0, 1)
 strokeWidth(mm_to_pixel(0.2, dpi))
 lineCap('round')
 font("Georgia", 8 * dpi/72)
@@ -42,8 +43,8 @@ font("Georgia", 8 * dpi/72)
 save()
 translate(margin, margin)
 for i in range(n_rows):
-    cmykFill(0, 0.05, 1, 0, 0.4)
-    cmykStroke(None)
+    fill(1, 0.8, 0, 0.4)
+    stroke(None)
     if (n_days - i) % 7 == 6 or (n_days - i) % 7 == 0:
         rect(0, i * grid, canvas_width, grid)
 restore()
@@ -51,7 +52,7 @@ restore()
 # draw half
 save()
 translate(margin, margin)
-cmykStroke(0, 0.1, 1, 0)
+stroke(1, 0.8, 0)
 lineDash(2 * dpi/72, 2 * dpi/72)
 for i in range(1, n_cols - n_projects):
     line((i * grid + grid/2, 0), (i * grid + grid/2, grid * n_rows))
@@ -70,8 +71,8 @@ for i in range(1, n_rows):
 
 # draw time
 save()
-cmykFill(0, 0, 0, 1)
-cmykStroke(None)
+fill(0, 0, 0, 1)
+stroke(None)
 for i in range(1, end_of_a_day - start_of_a_day + 1):
     text(str(start_of_a_day - 1 + i), (i * grid, grid * n_rows + mm_to_pixel(1.5, dpi)), 'center')
 restore()
@@ -87,8 +88,8 @@ for i in range(1, n_projects):
 
 # draw project number    
 save()
-cmykFill(0, 0, 0, 1)
-cmykStroke(None)
+fill(0, 0, 0, 1)
+stroke(None)
 for i in range(n_projects):
     text(chr(97 + i), (i * grid + mm_to_pixel(1.5, dpi), canvas_height - grid * n_rows - mm_to_pixel(3, dpi)), 'left')
 restore()
@@ -98,8 +99,8 @@ restore()
 # draw memo
 save()
 translate(margin + 0.25 * grid * (n_cols - n_projects - 0.5), margin + grid * n_rows + 0.8 * grid)
-cmykFill(0, 0, 0, 1, 0.1)
-cmykStroke(None)
+fill(0, 0.1)
+stroke(None)
 rect(0, 0, 0.75 * grid * (n_cols - n_projects - 0.5), canvas_height - grid * n_rows - 0.9 * grid)
 restore()
 
@@ -115,5 +116,7 @@ restore()
 
 parent_dir = os.path.dirname(os.getcwd())
 filename = os.path.basename(__file__).split('.')[0]
-saveImage('{}/{}.pdf'.format(os.path.join(parent_dir, 'pdf'),
+saveImage('{}/{}.svg'.format(os.path.join(parent_dir, 'svg'),
                              filename))
+saveImage('{}/{}.png'.format(os.path.join(parent_dir, 'png'),
+                             filename), imageResolution=72)
