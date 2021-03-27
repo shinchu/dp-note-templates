@@ -98,13 +98,10 @@ def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=Tr
         rect(box_size - box_size / box_mm, box_size - box_size / box_mm, mm_to_pixel(dot_size, dpi), mm_to_pixel(dot_size, dpi))
 
 
-dpi = 72
 # A4 paper
+dpi = 72
 width = mm_to_pixel(297, dpi)
 height = mm_to_pixel(210, dpi)
-# A5 paper
-# width = mm_to_pixel(210, dpi)
-# height = mm_to_pixel(148, dpi)
 
 # box size
 box_mm = 60

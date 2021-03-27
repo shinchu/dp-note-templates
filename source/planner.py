@@ -10,13 +10,10 @@ def mm_to_pixel(mm, dpi=300):
     inch_per_mm = 0.0393701
     return mm * inch_per_mm * dpi
 
-dpi = 72
 # A4 paper
+dpi = 72
 width = mm_to_pixel(297, dpi)
 height = mm_to_pixel(210, dpi)
-# A5 paper
-# width = mm_to_pixel(210, dpi)
-# height = mm_to_pixel(148, dpi)
 
 # variables
 start_of_a_day = 8
