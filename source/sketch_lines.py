@@ -88,8 +88,8 @@ class SketchLines:
 
 if __name__ == "__main__":
 
-    # A4 paper
     dpi = 72
+    # A4 paper
     width = mm_to_pixel(297, dpi)
     height = mm_to_pixel(210, dpi)
 
