@@ -83,7 +83,7 @@ class SketchLines:
         self.draw_ascender()
         cmykStroke(0, 0, 0, 1, 0.3)
         cmykFill(None)
-        self._draw_glyph_width()
+        self.draw_glyph_width()
 
 if __name__ == "__main__":
 
