@@ -13,8 +13,8 @@ def mm_to_pixel(mm, dpi=300):
 # ReMarkable template size
 # 1404×1872 pixels
 dpi = 200
-width = 1872
 height = 1404
+width = 1872
 
 # size of the pen
 pen_mm = 3.5
@@ -28,9 +28,11 @@ width_margin = mm_to_pixel(20, dpi)
 n_row = math.floor(height / (line_height + gutter))
 height_margin = (height - (n_row * (line_height + gutter) - gutter)) / 2
 
-newPage(width, height)
+newPage(height, width)
 strokeWidth(mm_to_pixel(0.1, dpi))
 
+translate(height, 0)
+rotate(90)
 translate(0, height_margin)
 
 for i in range(n_row):

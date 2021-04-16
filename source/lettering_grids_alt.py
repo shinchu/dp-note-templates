@@ -100,9 +100,9 @@ def draw_box(box_size, box_mm, outer_mm, inner_mm, corner_mm, dpi, show_cross=Tr
 
 # ReMarkable template size
 # 1404×1872 pixels
-dpi = 250
-width = 1872
+dpi = 200
 height = 1404
+width = 1872
 
 # box size
 box_mm = 60
@@ -121,9 +121,12 @@ n_row = math.floor(height / (outer_box + gutter))
 width_margin = (width - ((outer_box + gutter) * n_col - gutter)) / 2
 height_margin = (height - ((outer_box + gutter) * n_row - gutter)) / 2
 
-newPage(width, height)
+newPage(height, width)
+translate(height, 0)
+rotate(90)
+
 fill(None)
-stroke(0, 0.7, 0.9, 0.6)
+stroke(0, 0.5)
 strokeWidth(mm_to_pixel(0.1, dpi))
 
 translate(width_margin + mm_to_pixel(outer_mm, dpi), height_margin + mm_to_pixel(outer_mm, dpi))

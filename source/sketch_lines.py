@@ -110,7 +110,10 @@ if __name__ == "__main__":
     body_width = width - 2 * h_margin
     body_height = height - 2 * v_margin
 
-    size(width, height)
+    size(height, width)
+    translate(height, 0)
+    rotate(90)
+    
     lines = SketchLines(scale, body_width, glyph_width=500)
 
     advance = 0

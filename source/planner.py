@@ -32,7 +32,10 @@ canvas_height = height - 2 * margin
 
 grid = canvas_width / n_cols
 
-newPage(width, height)
+newPage(height, width)
+translate(height, 0)
+rotate(90)
+
 fill(None)
 stroke(0, 0, 0, 1)
 strokeWidth(mm_to_pixel(0.2, dpi))
