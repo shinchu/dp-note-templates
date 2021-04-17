@@ -1,6 +1,6 @@
 # Note templates
 
-A4 size note templates made with [DrawBot](https://www.drawbot.com/).
+Note templates made with [DrawBot](https://www.drawbot.com/).
 
 Good for print, DIGITAL PAPER (DPT-RP1), and reMarkable 2.
 
